@@ -14,5 +14,6 @@ namespace Doan.DAO
         {
             conn = dbConnection.getInstance();
         }
+
     }
 }

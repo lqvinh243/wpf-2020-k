@@ -52,15 +52,19 @@ namespace Doan.UserControls
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
         {
+            OrderState.pagination.previus = true;
+            OrderState.pagination.skip += OrderState.pagination.limit;
+            var getPaginationOrder = orderBus.getAll(OrderState.pagination.skip, OrderState.pagination.limit);
+            ReFillList(getPaginationOrder.orders);
             CalPagination();
-            ProductState.pagination.previus = true;
-            ProductState.pagination.skip += ProductState.pagination.limit;
         }
 
         private void BtnPrevius_Click(object sender, RoutedEventArgs e)
         {
-            ProductState.pagination.next = true;
-            ProductState.pagination.skip -= ProductState.pagination.limit;
+            OrderState.pagination.next = true;
+            OrderState.pagination.skip -= OrderState.pagination.limit;
+            var getPaginationOrder = orderBus.getAll(OrderState.pagination.skip, OrderState.pagination.limit);
+            ReFillList(getPaginationOrder.orders);
             CalPagination();
         }
 
@@ -104,6 +108,7 @@ namespace Doan.UserControls
             ActionStatusOrder();
             PaginationLoad(ActionOrder.Reload);
             orderAction.reset();
+            OrderHistoryLV.SelectedIndex = -1;
         }
            
      
@@ -123,8 +128,9 @@ namespace Doan.UserControls
         OrderCreateVO orderAction = new OrderCreateVO();
         private void UCSaleDashboard_Loaded(object sender, RoutedEventArgs e)
         {
-            OrderState.ordersState = orderBus.getAll();
-            OrderState.pagination.total = OrderState.ordersState.Count;
+            var getPaginationOrder = orderBus.getAll(OrderState.pagination.skip, OrderState.pagination.limit);
+            ReFillList(getPaginationOrder.orders);
+            OrderState.pagination.total = getPaginationOrder.count;
             OrderHistoryLV.ItemsSource = OrderState.ordersState;
             OrderDetail.DataContext = orderAction;
             OrderProductLV.ItemsSource = orderAction.orderProductVOs;
@@ -152,7 +158,20 @@ namespace Doan.UserControls
                     ActionStatusOrder();
                     break;
                 case ActionOrder.Delete:
+                    if(isAction == true)
+                    {
+                        MessageBox.Show("Bạn đang có một thao tác khác!!");
+                        return;
+                    }
                     OrderState.pagination.skip = 0;
+                    if(OrderHistoryLV.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Chọn đơn hàng để xóa bạn ơi!!");
+                        return;
+                    }
+                    orderBus.deleteById(orderAction.Id);
+                    PaginationLoad(ActionOrder.Reload);
+                    orderAction.reset();
                     break;
                 case ActionOrder.Reload:
                     OrderState.pagination.skip = 0;
@@ -199,7 +218,7 @@ namespace Doan.UserControls
         private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             FunctionHelper.Pagination(ActionPagination.Load, ActionProduct.Reload);
-            AllProductForm frm = new AllProductForm();
+            AllProductForm frm = new AllProductForm(orderAction);
             frm.ShowDialog();
             if(frm.DialogResult == true)
             {
@@ -238,8 +257,16 @@ namespace Doan.UserControls
                         return;
                     }
                 }
+
+                if (OrderHistoryLV.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Chọn sản phẩm để chỉnh sửa!");
+                    return;
+                }
+                var order = OrderHistoryLV.SelectedItem as Order;
                 this.Mode.Text = "Cập nhật đơn hàng";
                 EnableForm(1);
+                orderAction.PassValue(order);
             }
             else
             {

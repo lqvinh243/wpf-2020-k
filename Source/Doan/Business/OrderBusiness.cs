@@ -14,11 +14,19 @@ namespace Doan.Business
     public class OrderBusiness : IOrderBusiness
     {
         private OrderDAO _orderDAO;
+        private ProductDAO _productDAO;
 
         public OrderBusiness()
         {
             _orderDAO = new OrderDAO();
+            _productDAO = new ProductDAO();
         }
+
+        public bool deleteById(int id)
+        {
+            return _orderDAO.deleteById(id);
+        }
+
         public BindingList<Order> getAll()
         {
             var t = _orderDAO.getAll();
@@ -69,6 +77,7 @@ namespace Doan.Business
                     OrderID = orderInsert.ID
                 };
 
+                _productDAO.updateQuantityById(orderProduct.ProductID, orderProduct.Quantity);
                 orderInsert.OrderProducts.Add(orderProduct);
             }
 

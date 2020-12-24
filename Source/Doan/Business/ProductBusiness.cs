@@ -99,6 +99,11 @@ namespace Doan.Business
 
             return _productDAO.update(id, product);
         }
+
+        public bool updateQuantityById(int id,int quanity)
+        {
+            return this._productDAO.updateQuantityById(id, quanity);
+        }
     }
 
     public class ProductPaginationBus

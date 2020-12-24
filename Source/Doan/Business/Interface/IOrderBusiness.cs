@@ -22,5 +22,7 @@ namespace Doan.Business.Interface
 
         Order update(OrderCreateVO data);
 
+        bool deleteById(int id);
+
     }
 }

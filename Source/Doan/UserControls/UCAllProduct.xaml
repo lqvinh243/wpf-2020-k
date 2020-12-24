@@ -49,6 +49,7 @@
                 <TextBlock FontSize="20">Số lượng :</TextBlock>
                 <TextBox Name="tbQuantity" Tag="Số lượng sản phẩm ..." FontSize="15" Style="{StaticResource MyWaterMarkStyle}" Margin="10 0" Width="200"></TextBox>
             </WrapPanel>
+            <TextBlock FontWeight="DemiBold" >Ghi chú: Bạn chỉ có thể thêm sản phẩm nếu số lượng tồn kho trên 0!!</TextBlock>
             <WrapPanel Margin="0 5 0 0">
                 <Button Name="btnDone">Hoàn tất</Button>
                 <Button Name="btnCancel">Hủy bỏ</Button>
@@ -71,6 +72,7 @@
                             <Image Source="{Binding ImagePath, Converter={StaticResource absoluteConverter}}" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                             <TextBlock  Text="{Binding Name}" FontWeight="ExtraLight" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" FontSize="15"></TextBlock>
                             <TextBlock Text="{Binding Price, Converter={StaticResource currencyVND}}" FontWeight="DemiBold" Foreground="#bf081f"></TextBlock>
+                            <TextBlock>Số lượng còn lại: <TextBlock FontWeight="DemiBold" Text="{Binding Quantity}"></TextBlock></TextBlock>
                         </StackPanel>
                     </materialDesign:Card>
                 </DataTemplate>

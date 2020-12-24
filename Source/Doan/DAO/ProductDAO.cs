@@ -29,7 +29,7 @@ namespace Doan.DAO
             return new ProductPagination(count, query);
         }
 
-        public ProductPagination getProducts(int skip, int limit,string name)
+        public ProductPagination getProducts(int skip, int limit, string name)
         {
             var query = conn.Products.Where(tg => tg.DeletedAt == null && tg.Category.DeletedAt == null && tg.Name_Slug.Contains(name));
             var count = query.Count();
@@ -37,7 +37,7 @@ namespace Doan.DAO
             return new ProductPagination(count, query);
         }
 
-        public ProductPagination getProducts(int skip, int limit, string name , int categoryId)
+        public ProductPagination getProducts(int skip, int limit, string name, int categoryId)
         {
             var query = conn.Products.Where(tg => tg.DeletedAt == null && tg.Category.DeletedAt == null && tg.Name_Slug.Contains(name) && tg.Category.DeletedAt == null && tg.CatID == categoryId);
             var count = query.Count();
@@ -87,6 +87,17 @@ namespace Doan.DAO
             {
                 return false;
             }
+        }
+
+        public bool updateQuantityById(int id, int quantity)
+        {
+            var product = conn.Products.Where(item => item.ID == id).FirstOrDefault();
+            if (product != null)
+            {
+                product.Quantity = product.Quantity - quantity;
+                conn.SaveChanges();
+            }
+            return true;
         }
 
         public bool delete(Product product)

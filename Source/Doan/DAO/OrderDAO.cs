@@ -63,31 +63,33 @@ namespace Doan.DAO
             var listOrdPT = orderUpdate.OrderProducts.ToList();
             for (int i = 0; i < listOrdPT.Count; i++)
             {
-                var orderPT = order.OrderProducts.Where(item => item.ID == listOrdPT[i].ID).FirstOrDefault();
-                if (orderPT == null)
+                conn.OrderProducts.Remove(listOrdPT[i]);
+                var productId = listOrdPT[i].ProductID;
+                var product = conn.Products.Where(item => item.ID == productId).FirstOrDefault();
+                if (product != null)
                 {
-                    conn.OrderProducts.Remove(listOrdPT[i]);
+                    product.Quantity = product.Quantity + listOrdPT[i].Quantity;
                 }
+                conn.SaveChanges();
+
             }
             var listOrdP = order.OrderProducts.ToList();
-            orderUpdate.OrderProducts.Clear();
-
             for (int i = 0; i < listOrdP.Count; i++)
             {
-                var idOrd = listOrdP[i].ID;
-                var orderP = conn.OrderProducts.Where(item => item.ID == idOrd).FirstOrDefault();
-                if (orderP != null)
+                conn.OrderProducts.Add(listOrdP[i]);
+                listOrdP[i].CreatedAt = DateTime.Now;
+                listOrdP[i].UpdatedAt = DateTime.Now;
+                listOrdP[i].OrderID = id;
+                var productId = listOrdP[i].ProductID;
+                var product = conn.Products.Where(item => item.ID == productId).FirstOrDefault();
+                if (product != null)
                 {
-                    orderUpdate.OrderProducts.Add(orderP);
+                    product.Quantity = product.Quantity - listOrdP[i].Quantity;
                 }
-                else
-                {
-                    listOrdP[i].OrderID = orderUpdate.ID;
-                    listOrdP[i].CreatedAt = DateTime.Now;
-                    listOrdP[i].UpdatedAt = DateTime.Now;
-                    orderUpdate.OrderProducts.Add(listOrdP[i]);
-                }
+                conn.SaveChanges();
+
             }
+            orderUpdate.TotalAmount = orderUpdate.OrderProducts.Select(item => item.TotalAmount).Sum(); 
             conn.SaveChanges();
             return conn.Orders.Where(item => item.ID == orderUpdate.ID).FirstOrDefault();
         }
@@ -99,9 +101,39 @@ namespace Doan.DAO
             {
                 orderProducts[i].OrderID = query.ID;
                 query.OrderProducts.Add(orderProducts[i]);
+                var idOrdP = orderProducts[i].ID;
+                var product = conn.Products.Where(item => item.ID == idOrdP).FirstOrDefault();
+                if (product != null)
+                {
+                    product.Quantity = product.Quantity - orderProducts[i].Quantity;
+                    conn.SaveChanges();
+                }
             }
             conn.SaveChanges();
             return query;
+        }
+
+        public bool deleteById(int id)
+        {
+            var order = conn.Orders.Where(item => item.ID == id).FirstOrDefault();
+            order.DeletedAt = DateTime.Now;
+            var listOrdP = order.OrderProducts.ToList();
+            for (int i = 0; i < order.OrderProducts.Count; i++)
+            {
+                var idOrdP = listOrdP[i].ID;
+                var ordP = conn.OrderProducts.Where(item => item.ID == idOrdP).FirstOrDefault();
+                ordP.DeletedAt = DateTime.Now;
+                var productId = listOrdP[i].ProductID;
+                var product = conn.Products.Where(item => item.ID == productId).FirstOrDefault();
+                if (product != null)
+                {
+                    product.Quantity = product.Quantity + listOrdP[i].Quantity;
+                }
+
+                conn.SaveChanges();
+            }
+            conn.SaveChanges();
+            return true;
         }
     }
     public class OrderPagination

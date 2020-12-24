@@ -1,4 +1,5 @@
 ﻿using Doan.UserControls;
+using Doan.ValueObject.OrderVO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,16 +23,19 @@ namespace Doan.Form
     {
         public Product productSelected { get; set; }
         public int quantity { get; set; }
-        public AllProductForm()
+
+        private OrderCreateVO vo;
+        public AllProductForm(OrderCreateVO orderCreate)
         {
             InitializeComponent();
 
             Loaded += AllProductForm_Loaded;
+            vo = orderCreate;
         }
 
         private void AllProductForm_Loaded(object sender, RoutedEventArgs e)
         {
-            UCAllProduct uc = new UCAllProduct();
+            UCAllProduct uc = new UCAllProduct(vo);
             Uc.Content = uc;
             uc.passEv += Uc_passEv;
         }

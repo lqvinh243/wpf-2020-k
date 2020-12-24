@@ -1,6 +1,7 @@
 ﻿using Doan.Common;
 using Doan.Form;
 using Doan.State;
+using Doan.ValueObject.OrderVO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +28,9 @@ namespace Doan.UserControls
     {
         public Product productSelected { get; set; }
         public int quantity { get; set; }
-        public UCAllProduct()
+
+        private OrderCreateVO vo;
+        public UCAllProduct(OrderCreateVO orderCreateVo)
         {
             InitializeComponent();
 
@@ -45,6 +48,7 @@ namespace Doan.UserControls
 
             quantity = 0;
             productSelected = null;
+            vo = orderCreateVo;
         }
 
         private void TbQuantity_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -77,6 +81,19 @@ namespace Doan.UserControls
                 MessageBox.Show("Chọn sản phẩm và số lượng để thêm vào đơn hàng!");
                 return;
             }
+
+            var productCheck = vo.orderProductVOs.Where(item => item.ProductID == productSelected.ID).FirstOrDefault();
+            if(productCheck != null)
+            {
+                MessageBox.Show("Sản phẩm này đã có trong giỏ hàng rùi!!");
+                return;
+            }
+             var countQuan = (int)productSelected.Quantity;
+            if (quantity > countQuan)
+            {
+                MessageBox.Show($"Số lượng sản phẩm còn lại là {countQuan}, bạn chỉ được phép thêm tối đa {countQuan} sản phẩm này!(Tính tổng cả số lượng hiện tại trong đơn hàng)");
+                return;
+            }        
             passEv?.Invoke(productSelected, quantity, true);
         }
 
