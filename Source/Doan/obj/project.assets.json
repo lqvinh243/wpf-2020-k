@@ -1,0 +1,1196 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "Aspose.Cells/20.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Aspose.Cells.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Aspose.Cells.dll": {}
+        }
+      },
+      "ControlzEx/4.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.19"
+        },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Extensions"
+        ],
+        "compile": {
+          "lib/net462/ControlzEx.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ControlzEx.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.11.3": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "ExcelDataReader/3.6.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Data",
+          "System.IO.Compression"
+        ],
+        "compile": {
+          "lib/net45/ExcelDataReader.dll": {}
+        },
+        "runtime": {
+          "lib/net45/ExcelDataReader.dll": {}
+        }
+      },
+      "Fluent.Ribbon/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "ControlzEx": "4.3.2"
+        },
+        "frameworkAssemblies": [
+          "UIAutomationProvider",
+          "UIAutomationTypes",
+          "WindowsFormsIntegration"
+        ],
+        "compile": {
+          "lib/net462/Fluent.dll": {}
+        },
+        "runtime": {
+          "lib/net462/Fluent.dll": {}
+        }
+      },
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MaterialDesignColors/1.2.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        }
+      },
+      "MaterialDesignThemes/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "[1.2.7, 2.0.0)"
+        },
+        "compile": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.XML",
+          "System.Xaml",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "System.IO.FileSystem.Primitives/4.3.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.FileSystem.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.Primitives.dll": {}
+        }
+      },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.FileSystem.Primitives": "4.3.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "WindowsBase",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.Packaging.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.Packaging.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "Aspose.Cells/20.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Aspose.Cells.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Aspose.Cells.dll": {}
+        }
+      },
+      "ControlzEx/4.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.19"
+        },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Extensions"
+        ],
+        "compile": {
+          "lib/net462/ControlzEx.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ControlzEx.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.11.3": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "ExcelDataReader/3.6.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Data",
+          "System.IO.Compression"
+        ],
+        "compile": {
+          "lib/net45/ExcelDataReader.dll": {}
+        },
+        "runtime": {
+          "lib/net45/ExcelDataReader.dll": {}
+        }
+      },
+      "Fluent.Ribbon/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "ControlzEx": "4.3.2"
+        },
+        "frameworkAssemblies": [
+          "UIAutomationProvider",
+          "UIAutomationTypes",
+          "WindowsFormsIntegration"
+        ],
+        "compile": {
+          "lib/net462/Fluent.dll": {}
+        },
+        "runtime": {
+          "lib/net462/Fluent.dll": {}
+        }
+      },
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MaterialDesignColors/1.2.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        }
+      },
+      "MaterialDesignThemes/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "[1.2.7, 2.0.0)"
+        },
+        "compile": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.XML",
+          "System.Xaml",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "System.IO.FileSystem.Primitives/4.3.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.FileSystem.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.Primitives.dll": {}
+        }
+      },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.FileSystem.Primitives": "4.3.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "WindowsBase",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.Packaging.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.Packaging.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "Aspose.Cells/20.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Aspose.Cells.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Aspose.Cells.dll": {}
+        }
+      },
+      "ControlzEx/4.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.19"
+        },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Extensions"
+        ],
+        "compile": {
+          "lib/net462/ControlzEx.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ControlzEx.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.11.3": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "ExcelDataReader/3.6.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Data",
+          "System.IO.Compression"
+        ],
+        "compile": {
+          "lib/net45/ExcelDataReader.dll": {}
+        },
+        "runtime": {
+          "lib/net45/ExcelDataReader.dll": {}
+        }
+      },
+      "Fluent.Ribbon/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "ControlzEx": "4.3.2"
+        },
+        "frameworkAssemblies": [
+          "UIAutomationProvider",
+          "UIAutomationTypes",
+          "WindowsFormsIntegration"
+        ],
+        "compile": {
+          "lib/net462/Fluent.dll": {}
+        },
+        "runtime": {
+          "lib/net462/Fluent.dll": {}
+        }
+      },
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MaterialDesignColors/1.2.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        }
+      },
+      "MaterialDesignThemes/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "[1.2.7, 2.0.0)"
+        },
+        "compile": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.XML",
+          "System.Xaml",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "System.IO.FileSystem.Primitives/4.3.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.FileSystem.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.Primitives.dll": {}
+        }
+      },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.FileSystem.Primitives": "4.3.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "WindowsBase",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.Packaging.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.Packaging.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "Aspose.Cells/20.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Aspose.Cells.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Aspose.Cells.dll": {}
+        }
+      },
+      "ControlzEx/4.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.19"
+        },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Extensions"
+        ],
+        "compile": {
+          "lib/net462/ControlzEx.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ControlzEx.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.11.3": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/net46/DocumentFormat.OpenXml.dll": {}
+        }
+      },
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "ExcelDataReader/3.6.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Data",
+          "System.IO.Compression"
+        ],
+        "compile": {
+          "lib/net45/ExcelDataReader.dll": {}
+        },
+        "runtime": {
+          "lib/net45/ExcelDataReader.dll": {}
+        }
+      },
+      "Fluent.Ribbon/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "ControlzEx": "4.3.2"
+        },
+        "frameworkAssemblies": [
+          "UIAutomationProvider",
+          "UIAutomationTypes",
+          "WindowsFormsIntegration"
+        ],
+        "compile": {
+          "lib/net462/Fluent.dll": {}
+        },
+        "runtime": {
+          "lib/net462/Fluent.dll": {}
+        }
+      },
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
+      "MaterialDesignColors/1.2.7": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignColors.dll": {}
+        }
+      },
+      "MaterialDesignThemes/3.2.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "[1.2.7, 2.0.0)"
+        },
+        "compile": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MaterialDesignThemes.Wpf.dll": {}
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "PresentationFramework",
+          "System",
+          "System.Core",
+          "System.XML",
+          "System.Xaml",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/net40/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "System.IO.FileSystem.Primitives/4.3.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.FileSystem.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.Primitives.dll": {}
+        }
+      },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.FileSystem.Primitives": "4.3.0"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "WindowsBase",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.IO.Packaging.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.Packaging.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Aspose.Cells/20.11.0": {
+      "sha512": "gzZZyBsNzHwltq28tPGgdNo7fg61MagEokUkBEC3TmQx2N4xZEATd5q60l95do7ksxJE5auD7p2hLeM3DdbQug==",
+      "type": "package",
+      "path": "aspose.cells/20.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Help/Aspose.Cells For .NET Documentation.chm",
+        "License/thirdpartylicenses.Aspose.Cells.for.NET.pdf",
+        "acw_client/acwmain.js",
+        "acw_client/b1.gif",
+        "acw_client/b2.gif",
+        "acw_client/b3.gif",
+        "acw_client/b4.gif",
+        "acw_client/b5.gif",
+        "acw_client/b6.gif",
+        "acw_client/b7.gif",
+        "acw_client/b8.gif",
+        "acw_client/collapse.gif",
+        "acw_client/colordlg.htm",
+        "acw_client/dot.gif",
+        "acw_client/dropdown.gif",
+        "acw_client/expand.gif",
+        "acw_client/findDlg.htm",
+        "acw_client/findDlg.js",
+        "acw_client/fontdlg.htm",
+        "acw_client/fontdlg.js",
+        "acw_client/fontdlg_l.htm",
+        "acw_client/fontdlg_l.js",
+        "acw_client/form.gif",
+        "acw_client/gridwebform.js",
+        "acw_client/headerBg.gif",
+        "acw_client/lang_cn.js",
+        "acw_client/lang_en.js",
+        "acw_client/larrow.gif",
+        "acw_client/loading.gif",
+        "acw_client/menu.css",
+        "acw_client/rarrow.gif",
+        "acw_client/save.gif",
+        "acw_client/star.gif",
+        "acw_client/submit.gif",
+        "acw_client/undo.gif",
+        "acw_client/updating.gif",
+        "acw_client/x.gif",
+        "aspose.cells.20.11.0.nupkg.sha512",
+        "aspose.cells.nuspec",
+        "lib/MonoAndroid44/Aspose.Cells.dll",
+        "lib/MonoAndroid44/Aspose.Cells.xml",
+        "lib/net20/Aspose.Cells.dll",
+        "lib/net20/Aspose.Cells.xml",
+        "lib/net35/Aspose.Cells.dll",
+        "lib/net35/Aspose.Cells.xml",
+        "lib/net40-client/Aspose.Cells.dll",
+        "lib/net40-client/Aspose.Cells.xml",
+        "lib/net40/Aspose.Cells.dll",
+        "lib/net40/Aspose.Cells.xml",
+        "lib/netstandard20/Aspose.Cells.dll",
+        "lib/netstandard20/Aspose.Cells.xml",
+        "lib/xamarinios10/Aspose.Cells.dll",
+        "lib/xamarinios10/Aspose.Cells.xml"
+      ]
+    },
+    "ControlzEx/4.3.2": {
+      "sha512": "rivud1nUitXSu3GxzhKXu8gsXFqnrPOxrmVpOYejuNCe5Bm/BKevzZpJbH9hvwAx0pH9hGrqqSODa3j2Y9J/bQ==",
+      "type": "package",
+      "path": "controlzex/4.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "controlzex.4.3.2.nupkg.sha512",
+        "controlzex.nuspec",
+        "lib/net45/ControlzEx.dll",
+        "lib/net45/ControlzEx.pdb",
+        "lib/net45/ControlzEx.xml",
+        "lib/net462/ControlzEx.dll",
+        "lib/net462/ControlzEx.pdb",
+        "lib/net462/ControlzEx.xml",
+        "lib/netcoreapp3.0/ControlzEx.dll",
+        "lib/netcoreapp3.0/ControlzEx.pdb",
+        "lib/netcoreapp3.0/ControlzEx.xml",
+        "lib/netcoreapp3.1/ControlzEx.dll",
+        "lib/netcoreapp3.1/ControlzEx.pdb",
+        "lib/netcoreapp3.1/ControlzEx.xml",
+        "logo-mini.png"
+      ]
+    },
+    "DocumentFormat.OpenXml/2.11.3": {
+      "sha512": "dCugN386ka+LwcOHnxi4gUHbiDeIw0/GEYw1sXFhYiErGFbJpRpscRcn5b12dywUReFCOgGNJ/l16zG5udkC/A==",
+      "type": "package",
+      "path": "documentformat.openxml/2.11.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "documentformat.openxml.2.11.3.nupkg.sha512",
+        "documentformat.openxml.nuspec",
+        "icon.png",
+        "lib/net35/DocumentFormat.OpenXml.dll",
+        "lib/net35/DocumentFormat.OpenXml.xml",
+        "lib/net40/DocumentFormat.OpenXml.dll",
+        "lib/net40/DocumentFormat.OpenXml.xml",
+        "lib/net46/DocumentFormat.OpenXml.dll",
+        "lib/net46/DocumentFormat.OpenXml.xml",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
+      ]
+    },
+    "EntityFramework/6.2.0": {
+      "sha512": "ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
+      "type": "package",
+      "path": "entityframework/6.2.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/net40/App.config.transform",
+        "content/net40/Web.config.transform",
+        "entityframework.6.2.0.nupkg.sha512",
+        "entityframework.nuspec",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.xml",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/about_EntityFramework.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
+    "ExcelDataReader/3.6.0": {
+      "sha512": "eXyxTwG7EEWpgQX3juZ2KcndqTqm/ydx9GXS2lUiMJU54U4h5eXdygRtVgINv0t60ezPWEb+lL7uM7Q+wm5BBA==",
+      "type": "package",
+      "path": "exceldatareader/3.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "exceldatareader.3.6.0.nupkg.sha512",
+        "exceldatareader.nuspec",
+        "lib/net20/ExcelDataReader.dll",
+        "lib/net20/ExcelDataReader.pdb",
+        "lib/net20/ExcelDataReader.xml",
+        "lib/net45/ExcelDataReader.dll",
+        "lib/net45/ExcelDataReader.pdb",
+        "lib/net45/ExcelDataReader.xml",
+        "lib/netstandard1.3/ExcelDataReader.dll",
+        "lib/netstandard1.3/ExcelDataReader.pdb",
+        "lib/netstandard1.3/ExcelDataReader.xml",
+        "lib/netstandard2.0/ExcelDataReader.dll",
+        "lib/netstandard2.0/ExcelDataReader.pdb",
+        "lib/netstandard2.0/ExcelDataReader.xml"
+      ]
+    },
+    "Fluent.Ribbon/8.0.1": {
+      "sha512": "r7G06mlHoJJHm80Tt3LLabGuoQl84+sjCxrfaL8yLUncK6OKRTvpegjtipufoWFEfuJ8HkxR8c72gjP3M7G0TQ==",
+      "type": "package",
+      "path": "fluent.ribbon/8.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Logo.png",
+        "fluent.ribbon.8.0.1.nupkg.sha512",
+        "fluent.ribbon.nuspec",
+        "lib/net452/Fluent.dll",
+        "lib/net452/Fluent.pdb",
+        "lib/net452/Fluent.xml",
+        "lib/net462/Fluent.dll",
+        "lib/net462/Fluent.pdb",
+        "lib/net462/Fluent.xml",
+        "lib/netcoreapp3.0/Fluent.dll",
+        "lib/netcoreapp3.0/Fluent.pdb",
+        "lib/netcoreapp3.0/Fluent.xml",
+        "license/License.txt"
+      ]
+    },
+    "Fody/6.3.0": {
+      "sha512": "kBGlW/vBUvBSyCvFI3YICNl77gjUr0KMROlBTeBPN/+J3JMU57w1dpXPwjmU4ahdBTYLomzgxKLaJ3jVNuXuQg==",
+      "type": "package",
+      "path": "fody/6.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.3.0.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
+    "MaterialDesignColors/1.2.7": {
+      "sha512": "e+shDlaSAJcuTArqtfWjVUgAOlwQlgWq8akkzCGe1MvfV1ozmOqqXyWxg5w0vC/3/KZ84wnPUJeI1wzEpI0uJQ==",
+      "type": "package",
+      "path": "materialdesigncolors/1.2.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/MaterialDesignColors.Icon.png",
+        "lib/net45/MaterialDesignColors.dll",
+        "lib/net45/MaterialDesignColors.pdb",
+        "lib/netcoreapp3.1/MaterialDesignColors.dll",
+        "lib/netcoreapp3.1/MaterialDesignColors.pdb",
+        "materialdesigncolors.1.2.7.nupkg.sha512",
+        "materialdesigncolors.nuspec"
+      ]
+    },
+    "MaterialDesignThemes/3.2.0": {
+      "sha512": "aOZQShQuV7sCWOwO98dYz1S4stmIWDBH+Q6KoR3wDiDyuG7twoGnBDzQBhrxuS16I3GQiG5nfvUjEJFVc/zdKg==",
+      "type": "package",
+      "path": "materialdesignthemes/3.2.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MaterialDesignThemes.targets",
+        "build/Resources/Roboto/Roboto-Black.ttf",
+        "build/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "build/Resources/Roboto/Roboto-Bold.ttf",
+        "build/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "build/Resources/Roboto/Roboto-Italic.ttf",
+        "build/Resources/Roboto/Roboto-Light.ttf",
+        "build/Resources/Roboto/Roboto-LightItalic.ttf",
+        "build/Resources/Roboto/Roboto-Medium.ttf",
+        "build/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "build/Resources/Roboto/Roboto-Regular.ttf",
+        "build/Resources/Roboto/Roboto-Thin.ttf",
+        "build/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "build/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "images/MaterialDesignThemes.Icon.png",
+        "lib/net45/MaterialDesignThemes.Wpf.dll",
+        "lib/net45/MaterialDesignThemes.Wpf.pdb",
+        "lib/net45/MaterialDesignThemes.Wpf.xml",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.pdb",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.3.2.0.nupkg.sha512",
+        "materialdesignthemes.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.19": {
+      "sha512": "5sPWkbqImc2t1aQwIfJcKsUo7tOg1Tr8+6xVzZJB56Nzt4u9NlpcLofgdX/aRYpPKdWDA3U23Akw1KQzU5e82g==",
+      "type": "package",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.19",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Design/Microsoft.Xaml.Behaviors.Design.dll",
+        "lib/net45/Microsoft.Xaml.Behaviors.dll",
+        "lib/net45/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net45/Microsoft.Xaml.Behaviors.xml",
+        "lib/netcoreapp3.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.dll",
+        "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.pdb",
+        "lib/netcoreapp3.0/Microsoft.Xaml.Behaviors.xml",
+        "microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+        "microsoft.xaml.behaviors.wpf.nuspec",
+        "tools/Install.ps1"
+      ]
+    },
+    "PropertyChanged.Fody/3.3.1": {
+      "sha512": "/K/X8wn2IZV7Zezb+WvieOalWopFJKEcB7BrPoDFCj74VexupWdtvqriCoifSyrX0E+XhTzk0cVQd26hQ7TODg==",
+      "type": "package",
+      "path": "propertychanged.fody/3.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/PropertyChanged.Fody.props",
+        "lib/net40/PropertyChanged.dll",
+        "lib/net40/PropertyChanged.xml",
+        "lib/netstandard1.0/PropertyChanged.dll",
+        "lib/netstandard1.0/PropertyChanged.xml",
+        "lib/netstandard2.0/PropertyChanged.dll",
+        "lib/netstandard2.0/PropertyChanged.xml",
+        "propertychanged.fody.3.3.1.nupkg.sha512",
+        "propertychanged.fody.nuspec",
+        "weaver/PropertyChanged.Fody.dll",
+        "weaver/PropertyChanged.Fody.xcf"
+      ]
+    },
+    "System.IO.FileSystem.Primitives/4.3.0": {
+      "sha512": "6QOb2XFLch7bEc4lIcJH49nJN2HV+OC3fHDgsLVsBVBk3Y4hFAnOBGzJ2lUu7CyDDFo9IBWkSsnbkT6IBwwiMw==",
+      "type": "package",
+      "path": "system.io.filesystem.primitives/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.IO.FileSystem.Primitives.dll",
+        "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.IO.FileSystem.Primitives.dll",
+        "ref/netstandard1.3/System.IO.FileSystem.Primitives.dll",
+        "ref/netstandard1.3/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/de/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/es/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/fr/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/it/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/ja/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/ko/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/ru/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/zh-hans/System.IO.FileSystem.Primitives.xml",
+        "ref/netstandard1.3/zh-hant/System.IO.FileSystem.Primitives.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+        "system.io.filesystem.primitives.nuspec"
+      ]
+    },
+    "System.IO.Packaging/4.7.0": {
+      "sha512": "9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "type": "package",
+      "path": "system.io.packaging/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.IO.Packaging.dll",
+        "lib/net46/System.IO.Packaging.xml",
+        "lib/netstandard1.3/System.IO.Packaging.dll",
+        "lib/netstandard1.3/System.IO.Packaging.xml",
+        "lib/netstandard2.0/System.IO.Packaging.dll",
+        "lib/netstandard2.0/System.IO.Packaging.xml",
+        "ref/net46/System.IO.Packaging.dll",
+        "ref/net46/System.IO.Packaging.xml",
+        "ref/netstandard1.3/System.IO.Packaging.dll",
+        "ref/netstandard1.3/System.IO.Packaging.xml",
+        "ref/netstandard2.0/System.IO.Packaging.dll",
+        "ref/netstandard2.0/System.IO.Packaging.xml",
+        "system.io.packaging.4.7.0.nupkg.sha512",
+        "system.io.packaging.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "Aspose.Cells >= 20.11.0",
+      "DocumentFormat.OpenXml >= 2.11.3",
+      "EntityFramework >= 6.2.0",
+      "ExcelDataReader >= 3.6.0",
+      "Fluent.Ribbon >= 8.0.1",
+      "MaterialDesignThemes >= 3.2.0",
+      "PropertyChanged.Fody >= 3.3.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\lqvin\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\lqvin\\Downloads\\Milestone 01 - Master data_1760019_1760094_1760090_1760138\\Source\\Doan\\MyShop.csproj",
+      "projectName": "MyShop",
+      "projectPath": "C:\\Users\\lqvin\\Downloads\\Milestone 01 - Master data_1760019_1760094_1760090_1760138\\Source\\Doan\\MyShop.csproj",
+      "packagesPath": "C:\\Users\\lqvin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lqvin\\Downloads\\Milestone 01 - Master data_1760019_1760094_1760090_1760138\\Source\\Doan\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\lqvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "Aspose.Cells": {
+            "target": "Package",
+            "version": "[20.11.0, )"
+          },
+          "DocumentFormat.OpenXml": {
+            "target": "Package",
+            "version": "[2.11.3, )"
+          },
+          "EntityFramework": {
+            "target": "Package",
+            "version": "[6.2.0, )"
+          },
+          "ExcelDataReader": {
+            "target": "Package",
+            "version": "[3.6.0, )"
+          },
+          "Fluent.Ribbon": {
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[3.2.0, )"
+          },
+          "PropertyChanged.Fody": {
+            "target": "Package",
+            "version": "[3.3.1, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

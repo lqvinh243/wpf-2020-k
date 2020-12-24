@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "b6UxPsVaOfBN3nsOz2vun6ktZei0snB3T+dpLPfGjCw/jIRgYnf1n+tk3PNS3n1P+dH+LtoPDmZhM0W9WglBbA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lqvin\\Downloads\\Milestone 01 - Master data_1760019_1760094_1760090_1760138\\Source\\Doan\\MyShop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lqvin\\.nuget\\packages\\aspose.cells\\20.11.0\\aspose.cells.20.11.0.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\controlzex\\4.3.2\\controlzex.4.3.2.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\documentformat.openxml\\2.11.3\\documentformat.openxml.2.11.3.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\fluent.ribbon\\8.0.1\\fluent.ribbon.8.0.1.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\fody\\6.3.0\\fody.6.3.0.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\materialdesigncolors\\1.2.7\\materialdesigncolors.1.2.7.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\materialdesignthemes\\3.2.0\\materialdesignthemes.3.2.0.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\propertychanged.fody\\3.3.1\\propertychanged.fody.3.3.1.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\lqvin\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
