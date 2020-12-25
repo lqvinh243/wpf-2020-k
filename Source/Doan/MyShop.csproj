@@ -263,6 +263,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assert\icon\order.png" />
     <Content Include="MyShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyShop.edmx</DependentUpon>

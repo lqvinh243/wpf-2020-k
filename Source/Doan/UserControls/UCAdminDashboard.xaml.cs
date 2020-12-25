@@ -130,7 +130,7 @@ namespace Doan.UserControls
                 product.catId = (cbbCategorySelect.SelectedItem as Category).ID;
                 product.imagePath = imageSelect != null ? image : "";
                 var validateString = product.validate();
-                if(validateString.Length > 0)
+                if (validateString.Length > 0)
                 {
                     MessageBox.Show(validateString);
                     return;
@@ -278,6 +278,7 @@ namespace Doan.UserControls
                     break;
                 case ActionProduct.Reload:
                     tbFindProduct.Text = "";
+                    ProductState.name = "";
                     if (ProductState.categoryId != -1)
                     {
                         FunctionHelper.Filter();

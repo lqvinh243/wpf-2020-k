@@ -45,10 +45,20 @@ namespace Doan.UserControls
             this.btnCancel.Click += BtnCancel_Click;
             this.tbQuantity.TextChanged += TbQuantity_TextChanged;
             this.tbQuantity.PreviewTextInput += TbQuantity_PreviewTextInput;
+            tbFindProduct.TextChanged += TbFindProduct_TextChanged;
 
             quantity = 0;
             productSelected = null;
             vo = orderCreateVo;
+        }
+
+        private void TbFindProduct_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           if(tbFindProduct.Text.Length > 0)
+            {
+                ProductState.name = tbFindProduct.Text;
+                FunctionHelper.Pagination(ActionPagination.Load, ActionProduct.FilterByName);
+            }
         }
 
         private void TbQuantity_PreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -41,7 +41,7 @@ namespace Doan.Business
 
         public OrderPaginationBus getAll(int skip, int limit, string code)
         {
-            var t = _orderDAO.getAll(skip, limit);
+            var t = _orderDAO.getAll(skip, limit, code);
             return new OrderPaginationBus(t.count, t.orders.ToList());
         }
 
@@ -85,9 +85,9 @@ namespace Doan.Business
             return orderUpdate;
         }
 
-        public Order update(int id,OrderUpdateVO data)
+        public Order update(int id, OrderUpdateVO data)
         {
-            return _orderDAO.update(id,data.toOrder());
+            return _orderDAO.update(id, data.toOrder());
         }
 
         public Order update(OrderCreateVO data)

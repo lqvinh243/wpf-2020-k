@@ -25,15 +25,19 @@ namespace Doan.DAO
         {
             var query = conn.Orders.Where(tg => tg.DeletedAt == null);
             var count = query.Count();
-            query = query.OrderBy(t => t.CreatedAt).Skip(skip).Take(limit);
+            query = query.OrderByDescending(t => t.CreatedAt).Skip(skip).Take(limit);
             return new OrderPagination(count, query);
         }
 
         public OrderPagination getAll(int skip, int limit, string code)
         {
-            var query = conn.Orders.Where(tg => tg.DeletedAt == null && tg.Code.Equals(code));
+            var query = conn.Orders.Where(tg => tg.DeletedAt == null);
+            if (code.Length > 0)
+            {
+                query = query.Where(tg => tg.Code.Contains(code));
+            }
             var count = query.Count();
-            query = query.OrderBy(t => t.CreatedAt).Skip(skip).Take(limit);
+            query = query.OrderByDescending(t => t.CreatedAt).Skip(skip).Take(limit);
             return new OrderPagination(count, query);
         }
         public IQueryable<Order> getById(int id)

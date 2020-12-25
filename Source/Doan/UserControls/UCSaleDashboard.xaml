@@ -14,13 +14,39 @@
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter" />
         <local1:ImagePathToBase64 x:Key="base64Converter" />
         <local1:NumberToCurrencyVND x:Key="currencyVND" />
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border Background="White" BorderBrush="#FF7D8683" BorderThickness="1"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DockPanel Name="ContentRight">
+        <DockPanel Name="ContentLeft">
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Padding="0 3" FontSize="20">Chi tiết</TextBlock>
             <WrapPanel DockPanel.Dock="Top">
                 <Button Name="btnAddProduct">Thêm sản phẩm</Button>
@@ -78,33 +104,34 @@
 
                 </Grid>
             </StackPanel>
-
         </DockPanel>
-        <DockPanel Grid.Column="1">
-            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Padding="0 3" FontSize="20">Lịch sử đơn hàng</TextBlock>
+        <DockPanel Grid.Column="1" Name="ContentRight" >
+            <DockPanel  DockPanel.Dock="Top">
+                <TextBlock HorizontalAlignment="Center" Padding="0 3" FontSize="20" DockPanel.Dock="Top">Lịch sử đơn hàng</TextBlock>
+                <TextBox Margin="20 0 20 0" Name="tbFindOrder" Tag="Tìm kiếm đơn hàng theo mã code ..." FontSize="18" Style="{StaticResource MyWaterMarkStyle}"></TextBox>
+            </DockPanel>
             <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Name="paginationOrder">
                 <Button Margin="10 0 10 0" Name="btnPrevius" IsEnabled="{Binding previus}">Previus</Button>
                 <Button Margin="10 0 10 0" Name="btnNext" IsEnabled="{Binding next}">Next</Button>
             </WrapPanel>
-            <WrapPanel>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="OrderHistoryLV">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel HorizontalAlignment="Center" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <materialDesign:Card HorizontalAlignment="Center" Padding="10">
-                                <StackPanel>
-                                    <TextBlock FontWeight="{Binding ElementName=FontWeightParrent,Path=FontWeight}">Mã đơn hàng : <TextBlock Text="{Binding Code}"></TextBlock></TextBlock>
-                                    <TextBlock FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}">Ngày tạo : <TextBlock FontWeight="{Binding ElementName=FontWeightParrent,Path=FontWeight}" Text="{Binding CreatedAt}"></TextBlock></TextBlock>
-                                </StackPanel>
-                            </materialDesign:Card>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </WrapPanel>
+            <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="OrderHistoryLV">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:Card HorizontalAlignment="Center" Padding="10"  Width="{Binding Path=ActualWidth, ElementName=ContentRight, Converter={local1:PercentageConverter},ConverterParameter='0.28'}">
+                            <StackPanel>
+                                <Image Source="/assert/icon/order.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                                <TextBlock FontWeight="{Binding ElementName=FontWeightParrent,Path=FontWeight}">Mã đơn hàng : <TextBlock Text="{Binding Code}"></TextBlock></TextBlock>
+                                <TextBlock FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}" TextWrapping="Wrap">Ngày tạo : <TextBlock FontWeight="{Binding ElementName=FontWeightParrent,Path=FontWeight}" Text="{Binding CreatedAt}" TextWrapping="Wrap"></TextBlock></TextBlock>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </DockPanel>
     </Grid>
 </UserControl>

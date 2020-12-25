@@ -53,11 +53,7 @@
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Product">
-                    <Fluent:Button Header="Add" Name="btnProductAdd" >
-                        <Fluent:Button.LargeIcon >
-                            <Image Source="/assert/icon/add2.png" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        </Fluent:Button.LargeIcon>
-                    </Fluent:Button>
+                    <Fluent:Button Header="Add" Name="btnProductAdd" />
                     <Fluent:Button Header="Edit" Name="btnProductEdit">
                         <Fluent:Button.LargeIcon >
                             <Image Source="/assert/icon/edit2.png" RenderOptions.BitmapScalingMode="HighQuality"/>
