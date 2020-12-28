@@ -1,4 +1,5 @@
-﻿using Doan.ValueObject.OrderProductVO;
+﻿using Doan.ValueObject.ClientVO;
+using Doan.ValueObject.OrderProductVO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,10 @@ namespace Doan.ValueObject.OrderVO
         public DateTime UpdatedAt { get; set; }
         public double TotalAmount { get; set; }
 
+        public string Address { get; set; }
+        public int Status { get; set; }
+        public ClientUpdateVO client { get; set; }
+
         public BindingList<OrderProductUpdateVO> orderProductVOs = new BindingList<OrderProductUpdateVO>();
 
         public Order toOrder()
@@ -22,8 +27,15 @@ namespace Doan.ValueObject.OrderVO
             var order = new Order()
             {
                 TotalAmount = this.TotalAmount,
-                UpdatedAt = this.UpdatedAt
+                UpdatedAt = this.UpdatedAt,
+                Address = this.Address
             };
+
+            order.Client = new Client();
+            order.Client.Name = client.Name;
+            order.Client.PhoneNumber = client.PhoneNumber;
+            order.OrderStatu = new OrderStatu();
+            order.OrderStatu.Value = Status;
 
             var orderProducts = new List<OrderProduct>();
 

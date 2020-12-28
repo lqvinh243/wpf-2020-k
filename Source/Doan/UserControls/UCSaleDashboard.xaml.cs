@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,7 @@ namespace Doan.UserControls
     public partial class UCSaleDashboard : UserControl
     {
         private OrderBusiness orderBus = new OrderBusiness();
+        private OrderStatusBussiness orderStatusBus = new OrderStatusBussiness();
 
         bool isAction = false;
         bool isSelect = false;
@@ -49,7 +51,13 @@ namespace Doan.UserControls
             this.btnNext.Click += BtnNext_Click;
 
             this.tbFindOrder.TextChanged += TbFindOrder_TextChanged;
+            this.tbPhoneNumber.PreviewTextInput += TbPhoneNumber_PreviewTextInput;
 
+        }
+
+        private void TbPhoneNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
         string text = "";
@@ -104,9 +112,10 @@ namespace Doan.UserControls
 
         private void BtnDone_Click(object sender, RoutedEventArgs e)
         {
-            if (orderAction.orderProductVOs.Count() <= 0)
+            string ErrMess = orderAction.Validate();
+            if(ErrMess.Length > 0)
             {
-                MessageBox.Show("Đơn hàng phải có ít nhất một sản phẩm!!");
+                MessageBox.Show(ErrMess);
                 return;
             }
 
@@ -150,6 +159,8 @@ namespace Doan.UserControls
             OrderDetail.DataContext = orderAction;
             OrderProductLV.ItemsSource = orderAction.orderProductVOs;
             paginationOrder.DataContext = OrderState.pagination;
+            OrderState.ordersStatus = orderStatusBus.getAll();
+            cbbStatusOrder.ItemsSource = OrderState.ordersStatus;
             CalPagination();
 
             ActionStatusOrder();
@@ -316,6 +327,10 @@ namespace Doan.UserControls
                 this.btnCancel.IsEnabled = true;
                 this.btnDone.IsEnabled = true;
                 this.btnDeleteProduct.IsEnabled = true;
+                this.tbAddress.IsEnabled = true;
+                this.tbName.IsEnabled = true;
+                this.tbPhoneNumber.IsEnabled = true;
+                this.cbbStatusOrder.IsEnabled = true;
             }
             else
             {
@@ -324,6 +339,10 @@ namespace Doan.UserControls
                 this.btnCancel.IsEnabled = false;
                 this.btnDone.IsEnabled = false;
                 this.btnDeleteProduct.IsEnabled = false;
+                this.tbAddress.IsEnabled = false;
+                this.tbName.IsEnabled = false;
+                this.tbPhoneNumber.IsEnabled = false;
+                this.cbbStatusOrder.IsEnabled = false;
             }
         }
     }

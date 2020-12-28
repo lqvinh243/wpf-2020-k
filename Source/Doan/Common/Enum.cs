@@ -51,4 +51,12 @@ namespace Doan.Common
        Manager = 2,
        Client = 3
     }
+
+    enum OrderStatus
+    {
+        New = 1,
+        Completed = 2,
+        Cancelled = 3,
+        Shipping = 4
+    }
 }

@@ -6,18 +6,20 @@
     <edmx:Diagrams>
       <Diagram DiagramId="e9ee12762c124d88852f887197b564e8" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="MyShopModel.Category" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyShopModel.Client" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MyShopModel.Manager" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyShopModel.Order" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyShopModel.Order" Width="1.5" PointX="2.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MyShopModel.OrderProduct" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MyShopModel.Product" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MyShopModel.Role" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MyShopModel.SupperAdmin" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="MyShopModel.FK_Product_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="MyShopModel.FK_Order_Client" ManuallyRouted="false" />
         <AssociationConnector Association="MyShopModel.FK_Order_Manager" ManuallyRouted="false" />
         <AssociationConnector Association="MyShopModel.FK_OrderProduct_Order" ManuallyRouted="false" />
         <AssociationConnector Association="MyShopModel.FK_OrderProduct_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MyShopModel.OrderStatu" Width="1.5" PointX="1.125" PointY="12.75" />
+        <AssociationConnector Association="MyShopModel.FK_Order_OrderStatus" />
+        <EntityTypeShape EntityType="MyShopModel.Client" Width="1.5" PointX="0.75" PointY="1.625" />
+        <AssociationConnector Association="MyShopModel.FK_Order_Client" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

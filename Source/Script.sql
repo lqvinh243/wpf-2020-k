@@ -1,4 +1,4 @@
- USE master;
+﻿ USE master;
  Go
  DROP DATABASE MyShop;
  Go
@@ -60,12 +60,14 @@ if not exists (select * from sysobjects where name='Order' and xtype='U')
 CREATE TABLE [dbo].[Order](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Code] varchar(50) NOT NULL,
+	[Address] varchar(255) NOT NULL,
 	[TotalAmount] [float] NOT NULL DEFAULT 0,
 	[CreatedAt] [DATETIME] NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	[UpdatedAt] [DATETIME] NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	[DeletedAt] [DATETIME] NULL,
 	[ClientID] [int] NULL,
-	[ManagerID] [int] NULL
+	[ManagerID] [int] NULL,
+	[StatusID] [int] NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -96,14 +98,12 @@ GO
 if not exists (select * from sysobjects where name='Client')
 CREATE TABLE [dbo].[Client](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[UserName] varchar(255) NOT NULL,
-	[Password] varchar(255) NOT NULL,
 	[Name] varchar(255) NOT NULL,
-	[RoleID] [int] NOT NULL,
+	[PhoneNumber] varchar(12) NOT NULL,
 	[CreatedAt] [DATETIME] NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	[UpdatedAt] [DATETIME] NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	[DeletedAt] [DATETIME] NULL,
-	UNIQUE(UserName),
+	UNIQUE(PhoneNumber),
  CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -161,6 +161,21 @@ CREATE TABLE [dbo].[Role](
 ) ON [PRIMARY]
 GO
 
+if not exists (select * from sysobjects where name='OrderStatus')
+CREATE TABLE [dbo].[OrderStatus](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EnumKey] varchar(255) NOT NULL,
+	[Value] [int] NOT NULL,
+	[Description] nvarchar(255) NULL,
+	[DeletedAt] [DATETIME] NULL,
+	UNIQUE (Value),
+ CONSTRAINT [PK_OrderStatus] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Product_Category')
 ALTER TABLE [dbo].[Product]  WITH CHECK ADD  CONSTRAINT [FK_Product_Category] FOREIGN KEY([CatID])
 REFERENCES [dbo].[Category] ([ID])
@@ -170,14 +185,6 @@ if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CO
 ALTER TABLE [dbo].[Product] CHECK CONSTRAINT [FK_Product_Category]
 GO
 
-if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Client_Role')
-ALTER TABLE [dbo].[Client] WITH CHECK ADD  CONSTRAINT [FK_Client_Role] FOREIGN KEY([RoleID])
-REFERENCES [dbo].[Role] ([RoleID])
-GO
-
-if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Client_Role')
-ALTER TABLE [dbo].[Client] CHECK CONSTRAINT [FK_Client_Role]
-GO
 
 if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Manager_Role')
 ALTER TABLE [dbo].[Manager] WITH CHECK ADD  CONSTRAINT [FK_Manager_Role] FOREIGN KEY([RoleID])
@@ -185,7 +192,7 @@ REFERENCES [dbo].[Role] ([RoleID])
 GO
 
 if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Manager_Role')
-ALTER TABLE [dbo].[Client] CHECK CONSTRAINT [FK_Manager_Role]
+ALTER TABLE [dbo].[Manager] CHECK CONSTRAINT [FK_Manager_Role]
 GO
 
 if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_SupperAdmin_Role')
@@ -233,7 +240,20 @@ if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CO
 ALTER TABLE [dbo].[OrderProduct] CHECK CONSTRAINT FK_OrderProduct_Product
 GO
 
+if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Order_OrderStatus')
+ALTER TABLE [dbo].[Order] WITH CHECK ADD  CONSTRAINT [FK_Order_OrderStatus] FOREIGN KEY([StatusID])
+REFERENCES [dbo].[OrderStatus] ([ID])
+GO
+
+if not exists (select * from INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_NAME ='FK_Order_OrderStatus')
+ALTER TABLE [dbo].[Order] CHECK CONSTRAINT FK_Order_OrderStatus
+GO
+
 
 INSERT INTO [dbo].[Role] (NAME,RoleID) VALUES ('SUPPER_ADMIN',1)
 INSERT INTO [dbo].[Role] (NAME,RoleID) VALUES ('MANAGER',2)
-INSERT INTO [dbo].[Role] (NAME,RoleID) VALUES ('CLIENT',3)
+
+INSERT INTO [dbo].[OrderStatus] (EnumKey,Value,Description) VALUES ('New',1,N'Đơn hàng mới được tạo')
+INSERT INTO [dbo].[OrderStatus] (EnumKey,Value,Description) VALUES ('Completed',2,N'Đơn hàng đã được thanh toán')
+INSERT INTO [dbo].[OrderStatus] (EnumKey,Value,Description) VALUES ('Cancelled',3,N'Đơn hàng đã hủy')
+INSERT INTO [dbo].[OrderStatus] (EnumKey,Value,Description) VALUES ('Shipping',4,N'Đơn hàng thanh toán và đã giao')

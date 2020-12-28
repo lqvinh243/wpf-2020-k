@@ -63,6 +63,30 @@ namespace Doan.DAO
         public Order update(int id, Order order)
         {
             var orderUpdate = conn.Orders.Where(item => item.DeletedAt == null && item.ID == id).FirstOrDefault();
+            var findOrderStatus = conn.OrderStatus.Where(item => item.Value == order.OrderStatu.Value).FirstOrDefault();
+            if(findOrderStatus != null)
+            {
+                orderUpdate.StatusID = findOrderStatus.ID;
+            }
+            var findClient = conn.Clients.Where(item => item.PhoneNumber.Equals(order.Client.PhoneNumber)).FirstOrDefault();
+            if(findClient != null)
+            {
+                orderUpdate.ClientID = findClient.ID;
+            }
+            else
+            {
+                var client = new Client()
+                {
+                    Name = order.Client.Name,
+                    PhoneNumber = order.Client.PhoneNumber,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+
+                var clientInsert = conn.Clients.Add(client);
+                orderUpdate.ClientID = clientInsert.ID;
+            }
+            orderUpdate.Address = order.Address;
             orderUpdate.UpdatedAt = order.UpdatedAt;
             var listOrdPT = orderUpdate.OrderProducts.ToList();
             for (int i = 0; i < listOrdPT.Count; i++)

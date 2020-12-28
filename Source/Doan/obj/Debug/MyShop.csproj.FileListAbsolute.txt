@@ -20,11 +20,13 @@ C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\bin\Debug\System.IO.Packaging.dll
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\MyShop.csprojAssemblyReference.cache
+C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\AllProductForm.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\CategoryForm.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\ProductForm.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Loading.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\MainWindow.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCAdminDashboard.g.cs
+C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCAllProduct.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCReport.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCSaleDashboard.g.cs
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\App.g.cs
@@ -33,11 +35,13 @@ C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Doan_MarkupCompile.cache
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Doan_MarkupCompile.lref
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\App.baml
+C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\AllProductForm.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\CategoryForm.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\ProductForm.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Loading.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\MainWindow.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCAdminDashboard.baml
+C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCAllProduct.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCReport.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCSaleDashboard.baml
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Doan.g.resources
@@ -48,7 +52,5 @@ C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\MyShop.csproj.CopyComplete
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Doan.exe
 C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Doan.pdb
-C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\AllProductForm.g.cs
-C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\AllProductForm.baml
-C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCAllProduct.g.cs
-C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\UserControls\UCAllProduct.baml
+C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\Login.g.cs
+C:\Users\lqvin\Downloads\Milestone 01 - Master data_1760019_1760094_1760090_1760138\Source\Doan\obj\Debug\Form\Login.baml

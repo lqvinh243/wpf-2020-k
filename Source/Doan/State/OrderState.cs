@@ -11,6 +11,7 @@ namespace Doan.State
     public static class OrderState
     {
         public static BindingList<Order> ordersState = new BindingList<Order>();
+        public static BindingList<OrderStatu> ordersStatus = new BindingList<OrderStatu>();
         public static int Action = 1;
         public static Pagination pagination = new Pagination();
 

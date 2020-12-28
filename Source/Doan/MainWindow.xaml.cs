@@ -58,6 +58,7 @@ namespace Doan
             btnOrderDelete.Click += BtnOrderDelete_Click;
 
 
+
         }
 
         private void BtnOrderDelete_Click(object sender, RoutedEventArgs e)
@@ -170,14 +171,19 @@ namespace Doan
                     new TabItem() { Content = report}
                     };
             tabs.ItemsSource = screens;
+            Login lg = new Login();
+            lg.ShowDialog();
             this.Show();
 
             ribbon.SelectedTabChanged += Ribbon_SelectedTabChanged;
+            
         }
 
         private void Ribbon_SelectedTabChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(ribbon.SelectedTabIndex == 0)
+            var index = ribbon.SelectedTabIndex;
+            
+            if (ribbon.SelectedTabIndex == 0)
             {
                 evenHandler?.Invoke(ActionProduct.Reload, null);
             }

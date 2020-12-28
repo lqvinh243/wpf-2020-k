@@ -60,10 +60,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Business\CategoryBusiness.cs" />
+    <Compile Include="Business\ClientBusiness.cs" />
     <Compile Include="Business\Interface\ICategoryBusiness.cs" />
+    <Compile Include="Business\Interface\IClientBusiness.cs" />
     <Compile Include="Business\Interface\IOrderBusiness.cs" />
+    <Compile Include="Business\Interface\IOrderStatusBusiness.cs" />
     <Compile Include="Business\Interface\IProductBusiness.cs" />
     <Compile Include="Business\OrderBusiness.cs" />
+    <Compile Include="Business\OrderStatusBussiness.cs" />
     <Compile Include="Business\ProductBusiness.cs" />
     <Compile Include="Category.cs">
       <DependentUpon>MyShop.tt</DependentUpon>
@@ -74,15 +78,20 @@
     <Compile Include="Common\Enum.cs" />
     <Compile Include="Common\FunctionHelper.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\dbConnection.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\OrderProductDAO.cs" />
+    <Compile Include="DAO\OrderStatusDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="Form\AllProductForm.xaml.cs">
       <DependentUpon>AllProductForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form\CategoryForm.xaml.cs">
       <DependentUpon>CategoryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form\ProductForm.xaml.cs">
       <DependentUpon>ProductForm.xaml</DependentUpon>
@@ -114,6 +123,9 @@
     <Compile Include="OrderProduct.cs">
       <DependentUpon>MyShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderStatu.cs">
+      <DependentUpon>MyShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>MyShop.tt</DependentUpon>
     </Compile>
@@ -140,8 +152,11 @@
       <DependentUpon>UCSaleDashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueObject\CategoryVO\CategoryUpdateVO.cs" />
+    <Compile Include="ValueObject\ClientVO\ClientCreateVO.cs" />
+    <Compile Include="ValueObject\ClientVO\ClientUpdateVO.cs" />
     <Compile Include="ValueObject\OrderProductVO\OrderProductCreateVO.cs" />
     <Compile Include="ValueObject\OrderProductVO\OrderProductUpdateVO.cs" />
+    <Compile Include="ValueObject\OrderStatusVO\OrderStatusCreateVO.cs" />
     <Compile Include="ValueObject\OrderVO\OrderCreateVO.cs" />
     <Compile Include="ValueObject\OrderVO\OrderUpdateVO.cs" />
     <Compile Include="ValueObject\ProductVO\ProductCreateVO.cs" />
@@ -151,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Form\CategoryForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

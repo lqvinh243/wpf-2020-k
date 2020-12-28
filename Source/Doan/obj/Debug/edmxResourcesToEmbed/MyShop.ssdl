@@ -16,10 +16,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
     <Property Name="DeletedAt" Type="datetime" />
@@ -43,12 +41,14 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="TotalAmount" Type="float" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
     <Property Name="DeletedAt" Type="datetime" />
     <Property Name="ClientID" Type="int" />
     <Property Name="ManagerID" Type="int" />
+    <Property Name="StatusID" Type="int" />
   </EntityType>
   <EntityType Name="OrderProduct">
     <Key>
@@ -63,6 +63,16 @@
     <Property Name="TotalAmount" Type="float" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnumKey" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Value" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
     <Property Name="DeletedAt" Type="datetime" />
   </EntityType>
   <EntityType Name="Product">
@@ -107,9 +117,6 @@
     <Property Name="DeletedAt" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_Client_Role' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_Client_Role" />-->
-  <!--Errors Found During Generation:
 warning 6035: The relationship 'FK_Manager_Role' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Manager_Role" />-->
   <Association Name="FK_Order_Client">
@@ -133,6 +140,18 @@ warning 6035: The relationship 'FK_Manager_Role' has columns that are not part o
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StatusID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -181,6 +200,7 @@ warning 6035: The relationship 'FK_SupperAdmin_Role' has columns that are not pa
     <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SupperAdmin" EntityType="Self.SupperAdmin" Schema="dbo" store:Type="Tables" />
@@ -190,6 +210,10 @@ warning 6035: The relationship 'FK_SupperAdmin_Role' has columns that are not pa
     </AssociationSet>
     <AssociationSet Name="FK_Order_Manager" Association="Self.FK_Order_Manager">
       <End Role="Manager" EntitySet="Manager" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderProduct_Order" Association="Self.FK_OrderProduct_Order">

@@ -28,10 +28,13 @@ namespace Doan
         public Nullable<int> ClientID { get; set; }
         public Nullable<int> ManagerID { get; set; }
         public double TotalAmount { get; set; }
+        public string Address { get; set; }
+        public Nullable<int> StatusID { get; set; }
     
-        public virtual Client Client { get; set; }
         public virtual Manager Manager { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual OrderStatu OrderStatu { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Doan.Common;
+using Doan.ValueObject.ClientVO;
 using Doan.ValueObject.OrderProductVO;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,12 @@ namespace Doan.ValueObject.OrderVO
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
+        public int Status { get; set; }
+        public ClientCreateVO client { get; set; }
+
         public BindingList<OrderProductCreateVO> orderProductVOs = new BindingList<OrderProductCreateVO>();
+
+        public string Address { get; set; }
 
         public OrderCreateVO()
         {
@@ -26,6 +32,11 @@ namespace Doan.ValueObject.OrderVO
             TotalAmount = 0;
             CreatedAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
+            client = new ClientCreateVO();
+            Status = (int)OrderStatus.New;
+            Address = "";
+            client.Name = "";
+            client.PhoneNumber = "";
         }
 
         public void PassValue(Order order)
@@ -40,6 +51,10 @@ namespace Doan.ValueObject.OrderVO
             {
                 orderProductVOs.Add(new OrderProductCreateVO(listOrder[i]));
             }
+            this.Status = order.OrderStatu.Value;
+            this.Address = order.Address;
+            this.client.Name = order.Client.Name;
+            this.client.PhoneNumber = order.Client.PhoneNumber;
         }
 
         public void reset()
@@ -50,6 +65,9 @@ namespace Doan.ValueObject.OrderVO
             CreatedAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
             orderProductVOs.Clear();
+            Address = "";
+            client.Name = "";
+            client.PhoneNumber = "";
         }
 
         public void PassValue(OrderCreateVO order)
@@ -71,7 +89,10 @@ namespace Doan.ValueObject.OrderVO
             var ordU = new OrderUpdateVO()
             {
                 TotalAmount = this.TotalAmount,
-                UpdatedAt = this.UpdatedAt
+                UpdatedAt = this.UpdatedAt,
+                Address = this.Address,
+                client = new ClientUpdateVO(this.client),
+                Status = this.Status
             };
 
             for (int i = 0; i < this.orderProductVOs.Count(); i++)
@@ -92,7 +113,26 @@ namespace Doan.ValueObject.OrderVO
             return ordU;
         }
 
-       
+        public string Validate()
+        {
+            if(client.Name.Length <= 0)
+            {
+                return "Phải bắt buộc có tên";
+            }
+            if(client.PhoneNumber.Length <= 0)
+            {
+                return "Số điện thoại không đúng định dạng";
+            }
+            if(Address.Length <= 0)
+            {
+                return "Địa chỉ là bắt buộc";
+            }
+            if(orderProductVOs.Count() <= 0)
+            {
+                return "Đơn hàng phải có ít nhất một sản phẩm";
+            }
+            return "";
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

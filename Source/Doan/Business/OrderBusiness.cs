@@ -15,11 +15,17 @@ namespace Doan.Business
     {
         private OrderDAO _orderDAO;
         private ProductDAO _productDAO;
+        private ClientDAO _clientDAO;
+        private ClientBusiness _clientBus;
+        private OrderStatusDAO _orderStatusDAO;
 
         public OrderBusiness()
         {
             _orderDAO = new OrderDAO();
             _productDAO = new ProductDAO();
+            _clientDAO = new ClientDAO();
+            _clientBus = new ClientBusiness();
+            _orderStatusDAO = new OrderStatusDAO();
         }
 
         public bool deleteById(int id)
@@ -57,11 +63,28 @@ namespace Doan.Business
                 Code = data.Code,
                 CreatedAt = data.CreatedAt,
                 UpdatedAt = data.UpdatedAt,
-                TotalAmount = data.TotalAmount
+                TotalAmount = data.TotalAmount,
+                Address = data.Address,
             };
 
             var orderInsert = _orderDAO.insert(order);
-            var orderProducts = new List<OrderProduct>();
+
+            var checkClient = _clientDAO.findByPhoneNumber(data.client.PhoneNumber);
+            if(checkClient != null)
+            {
+                order.ClientID = checkClient.ID;
+            }
+            else
+            {
+                var client = _clientBus.insertData(data.client);
+                order.ClientID = client.ID;
+            }
+
+            var checkOrderStatus = _orderStatusDAO.getByValue(data.Status);
+            if(checkOrderStatus != null)
+            {
+                order.StatusID = checkOrderStatus.ID;
+            }
 
             for (int i = 0; i < data.orderProductVOs.Count(); i++)
             {

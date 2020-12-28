@@ -43,7 +43,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <DockPanel Name="ContentLeft">
@@ -58,12 +58,39 @@
                 <Button Margin="10 0 10 0" Name="btnCancel">Hủy bỏ</Button>
             </WrapPanel>
             <StackPanel Name="OrderDetail">
-                <TextBlock Name="FontSizeParrent" FontSize="15">Mã đơn hàng : <TextBlock Name="FontWeightParrent" FontWeight="DemiBold" Text="{Binding Code}"></TextBlock></TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="FontSizeParrent" FontSize="15">Mã đơn hàng : <TextBlock Name="FontWeightParrent" FontWeight="DemiBold" Text="{Binding Code}"></TextBlock></TextBlock>
+                    <DockPanel Grid.Column="1">
+                        <TextBlock FontSize="17" HorizontalAlignment="Center" Margin="0 5 5 0">Tình trạng</TextBlock>
+                        <ComboBox Name="cbbStatusOrder" FontSize="14" DisplayMemberPath="Description" SelectedValuePath="Value" SelectedValue="{Binding Status}">
+                        </ComboBox>
+                    </DockPanel>
+                </Grid>
                 <TextBlock FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}">Tổng tiền : <TextBlock FontWeight="{Binding ElementName=FontWeightParrent,Path=FontWeight}" Text="{Binding TotalAmount, Converter={StaticResource currencyVND}}"></TextBlock></TextBlock>
                 <TextBlock FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}">Ngày tạo : <TextBlock FontWeight="{Binding ElementName=FontWeightParrent,Path=FontWeight}" Text="{Binding CreatedAt}"></TextBlock></TextBlock>
+                <DockPanel LastChildFill="True" Margin="0 0 0 5">
+                    <TextBlock Width="{Binding ElementName=clientName,Path=ActualWidth}" FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}" Margin="0 0 5 0">Địa chỉ :</TextBlock>
+                    <TextBox Name="tbAddress" Tag="Nhập địa chỉ giao" Text="{Binding Address}"  Style="{StaticResource MyWaterMarkStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel LastChildFill="True"  Margin="0 0 0 5" DataContext="{Binding client}">
+                    <TextBlock FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}" Margin="0 0 5 0" Name="clientName">Tên khách hàng :</TextBlock>
+                    <TextBox Name="tbName" Tag="Nhập tên khách hàng" Text="{Binding Name}"  Style="{StaticResource MyWaterMarkStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel LastChildFill="True"  Margin="0 0 0 5"  DataContext="{Binding client}">
+                    <TextBlock Width="{Binding ElementName=clientName,Path=ActualWidth}" FontSize="{Binding ElementName=FontSizeParrent,Path=FontSize}" Margin="0 0 5 0">Số điện thoại :</TextBlock>
+                    <TextBox Name="tbPhoneNumber" Tag="Nhập số điện thoại" Text="{Binding PhoneNumber}" Style="{StaticResource MyWaterMarkStyle}"></TextBox>
+                </DockPanel>
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*"/>
+                        <ColumnDefinition Width="363*"/>
+                    </Grid.ColumnDefinitions>
                     <ListView SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="OrderProductLV" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                    Height="{Binding Path=ActualHeight, ElementName=ContentRight, Converter={local1:PercentageConverter},ConverterParameter='0.7'}" >
+                    Height="{Binding Path=ActualHeight, ElementName=ContentRight, Converter={local1:PercentageConverter},ConverterParameter='0.5'}" Grid.ColumnSpan="2" >
                         <ListView.Resources>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
