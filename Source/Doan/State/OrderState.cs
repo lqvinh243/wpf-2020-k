@@ -14,6 +14,7 @@ namespace Doan.State
         public static BindingList<OrderStatu> ordersStatus = new BindingList<OrderStatu>();
         public static int Action = 1;
         public static Pagination pagination = new Pagination();
+        public static FilterOrder filterOrder = new FilterOrder();
 
         public class Pagination : INotifyPropertyChanged
         {
@@ -33,5 +34,31 @@ namespace Doan.State
 
             public event PropertyChangedEventHandler PropertyChanged;
         }
+    }
+
+    public class FilterOrder: INotifyPropertyChanged
+    {
+        public string text { get; set; }
+        public int ValueStatus { get; set; }
+        public string MoneySearch { get; set; }
+        public bool BelowMoney { get; set; }
+
+        public FilterOrder()
+        {
+            text = "";
+            ValueStatus = -1;
+            MoneySearch = "";
+            BelowMoney = false;
+        }
+
+        public void Reset()
+        {
+            text = "";
+            ValueStatus = -1;
+            MoneySearch = "";
+            BelowMoney = false;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -53,6 +53,17 @@ namespace Doan.UserControls
             this.tbFindOrder.TextChanged += TbFindOrder_TextChanged;
             this.tbPhoneNumber.PreviewTextInput += TbPhoneNumber_PreviewTextInput;
 
+            this.btnUnFilterAll.Click += BtnUnFilterAll_Click;
+
+        }
+
+        private void BtnUnFilterAll_Click(object sender, RoutedEventArgs e)
+        {
+            OrderState.filterOrder.Reset();
+            var getPaginationOrder = orderBus.getAll(OrderState.pagination.skip, OrderState.pagination.limit, text);
+            ReFillList(getPaginationOrder.orders);
+            OrderState.pagination.total = getPaginationOrder.count;
+            CalPagination();
         }
 
         private void TbPhoneNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -71,6 +82,7 @@ namespace Doan.UserControls
             var getPaginationOrder = orderBus.getAll(OrderState.pagination.skip, OrderState.pagination.limit, text);
             ReFillList(getPaginationOrder.orders);
             OrderState.pagination.total = getPaginationOrder.count;
+            CalPagination();
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
@@ -161,9 +173,17 @@ namespace Doan.UserControls
             paginationOrder.DataContext = OrderState.pagination;
             OrderState.ordersStatus = orderStatusBus.getAll();
             cbbStatusOrder.ItemsSource = OrderState.ordersStatus;
+            cbbFilterStatus.ItemsSource = OrderState.ordersStatus;
+            BoxFilter.DataContext = OrderState.filterOrder;
             CalPagination();
 
             ActionStatusOrder();
+        }
+
+        public void SetUnfilterAll()
+        {
+            this.tbFindOrder.Text = "";
+            this.cbbFilterStatus.SelectedIndex = -1;
         }
 
         private void MainWindow_evenHandler(object sender, EventArgs e)

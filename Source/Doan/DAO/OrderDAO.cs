@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doan.State;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,22 @@ namespace Doan.DAO
             if (code.Length > 0)
             {
                 query = query.Where(tg => tg.Code.Contains(code));
+            }
+            var count = query.Count();
+            query = query.OrderByDescending(t => t.CreatedAt).Skip(skip).Take(limit);
+            return new OrderPagination(count, query);
+        }
+
+        public OrderPagination getAll(int skip, int limit, FilterOrder filter)
+        {
+            var query = conn.Orders.Where(tg => tg.DeletedAt == null);
+            if (filter.text.Length > 0)
+            {
+                query = query.Where(tg => tg.Code.Contains(filter.text));
+            }
+            if(filter.ValueStatus != -1)
+            {
+                query = query.Where(tg => tg.OrderStatu.Value == filter.ValueStatus);
             }
             var count = query.Count();
             query = query.OrderByDescending(t => t.CreatedAt).Skip(skip).Take(limit);
